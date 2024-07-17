@@ -1,0 +1,315 @@
+.jobSearch-section {
+    padding-top: 100px;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jobSearch-section-search-bar-section {
+    padding: 10px;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.jobSearch-search-bar-container {
+    height: 60px;
+    width: 70%;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    background-color: rgb(244,242,246);
+    padding: 12px 17px;
+    > img:nth-child(1) {
+        padding-right: 10px;
+    }
+    > input {
+        outline: none;
+        border: 0 solid grey;
+        font-size: 17px;
+        color: #000000;
+        height: 100%;
+        margin-right: 8px;
+        background-color: transparent;
+        width: 100%;
+    }
+}
+
+.jobSearch-filter-jobs-profileUpdate-section {
+    width: 100%;
+    background-color: rgb(244,242,246);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+    > div {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+    }
+    > h1 {
+        font-size: 19px;
+        margin: 15px 0;
+        width: 80%;
+    }
+}
+
+.jobSearch-filter-container {
+    width: 25%;
+    min-width: 200px;
+    > form {
+        background-color: #ffffff;
+        border: 0.5px solid gainsboro;
+        padding: 22px;
+        padding-bottom: 0 !important;
+        border-radius: 14px;
+    }
+}
+
+.filter-icon-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropDown-click-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px 0;
+    cursor: pointer;
+    color: #000000;
+    > p {
+        font-size: 15px;
+        font-weight: 600;
+    }
+}
+
+.filter-section-dropdownimg {
+    height: 20px;
+    transition: all 0.1s linear;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.filter-options-group {
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px;
+    margin: 12px 0;
+    position: relative;
+    > label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #4b4b4b;
+        > input {
+            color: rgb(31 130 104);
+        }
+    }
+    > input{
+        margin-top: 20px;
+        position: relative;
+        width: 100%;
+    }
+}
+
+.filter-sortby-section {
+    border-bottom: 0.5px solid rgb(189, 189, 189);
+}
+
+.experience-range-filter-section {
+    border-bottom: 0.5px solid rgb(189, 189, 189);
+    > p {
+        color: #808080;
+    }
+}
+
+.salary-range-filter-section {
+    border-bottom: 0.5px solid rgb(189, 189, 189);
+    > p {
+        color: #808080;
+    }
+}
+
+.datePosted-radio-options-section {
+    border-bottom: 0.5px solid rgb(189, 189, 189);
+}
+
+.highestEdu-radio-options-section {
+    border-bottom: 0.5px solid rgb(189, 189, 189);
+    > p {
+        color: #808080;
+    }
+}
+
+.english-radio-options-section {
+    border-bottom: 0.5px solid rgb(189, 189, 189);
+    > p {
+        color: #808080;
+    }
+}
+
+.workMode-checkBox-section {
+    border-bottom: 0.5px solid rgb(189, 189, 189);
+}
+
+.range-top-text {
+    position: absolute;
+    transform: translate(-50%, -35%);
+    background-color: rgb(0,66,44);
+    color: #ffffff;
+    border-radius: 20px;
+    height: fit-content;
+    width: fit-content;
+    padding: 3px 9px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.experience-label-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #373737;
+}
+
+.jobSearch-userLogin-card {
+    width: 25%;
+    min-width: 200px;
+}
+
+// update this css
+
+.Box{
+    // background-color: antiquewhite;
+    width: 40%;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+.box1{
+    position: relative;
+    height: fit-content;
+    width: 100%;
+    background-color:white;
+    border-radius: 10px;
+    padding-right: 5px;
+}
+.box1 img{
+    height: 30px;
+    padding-left: 10px;
+    padding-top: 10px
+}
+.btn{
+    border:none;
+    color:Green;
+    background-color: white;
+    font-size: 1rem;
+    margin-left: auto;
+    position:absolute;
+    right: 5%;
+}
+.web{
+    height: 70px;
+    width: 100%;
+    display:flex;
+    align-items: center;
+}
+.web img{
+    margin-right: 10px;
+}
+pre{
+    margin-top: 14px;
+}
+#pid{
+    padding-left: 0;
+}
+// p{
+//     color: #8c8594;
+//     padding-left: 10px;
+//     font-size: 15px;
+// }
+.flex{
+    display: flex;
+    margin-top: 5px;
+}
+
+i{
+    padding-left: 20px;
+    color: #8c8594;
+    font-size: 16px;
+}
+.flex2{
+    display: flex;
+    /* border: 2px solid black; */
+}
+.flex2 i{
+    padding-top: 10px;
+}
+.flex2  p{
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 15px;
+}
+.main2{
+    background-color:white;
+    /* border: 2px solid black; */
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.div1{
+    background-color: #f4f2f6 ;
+    height: 30px;
+    width: 23%;
+    padding-left: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 5px;
+    flex-grow: 1;
+    border-radius: 2px;
+}
+.div1 p{
+    font-size: 11px;
+    padding-left: 2px;
+}
+.div1 img{
+    position:relative;
+    top:-5px;
+    height: 20px;
+    width:20px;
+}
+.walk{
+    /* background-color: white; */
+    height: 35px;
+    width: 100%;
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+ 
+}
+.walk img{
+    position: relative;
+    bottom: 7.4px;
+    height: 25px;
+    left: 5px;
+}
+.walk p{
+   font-size: 15px;
+    color:#190A28;
+    padding-left: 20px;
+}
