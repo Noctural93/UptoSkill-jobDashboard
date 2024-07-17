@@ -80,7 +80,7 @@ app.post('/jobs-upload', async(req, res) => {
     success: true,
     name: req.body,
   })
-})
+});
 
 app.get('/jobs', async (req, res) => {
   const { experience, salary, datePosted, highestEducation, workMode, workType, workShift, department, englishLevel, gender } = req.query;
