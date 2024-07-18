@@ -55,6 +55,9 @@ const jobSchema = new mongoose.Schema({
   },
   gender: {
     type: String,
+  },
+  location: {
+    type: String
   }
 });
 
@@ -82,15 +85,32 @@ app.post('/jobs-upload', async(req, res) => {
   })
 });
 
-app.get('/jobs', async (req, res) => {
-  const { experience, salary, datePosted, highestEducation, workMode, workType, workShift, department, englishLevel, gender } = req.query;
+app.get('/jobs', async(req, res) => {
+  const { sortBy, experience, salary, datePosted, highestEducation, workMode, workType, workShift, department, englishLevel, gender } = req.query;
   const filter = {}
 
-  if(experience){
+  let sortCriteria;
+  switch(sortBy){
+    case 'Salary - High to low':
+      sortCriteria = { salary: -1 };
+      break;
+    case 'Date posted - New to Old':
+      sortCriteria = { datePosted: -1 };
+      break;
+    case 'Experience - High to low':
+      sortCriteria = { experience: -1 };
+      break;
+    case 'Relevant':
+    default:
+      sortCriteria = {};
+      break;
+  }
+
+  if(experience && experience !== '21'){
     filter.experience = { $lte: Number(experience)}
   }
 
-  if(salary){
+  if(salary && salary !== '0'){
     filter.salary = { $lte: Number(salary) }
   }
 
@@ -107,7 +127,7 @@ app.get('/jobs', async (req, res) => {
     const hours = Number(datePosted);
     if ([24, 72, 128].includes(hours)) {
       const currentDate = new Date('2024-07-10');
-      const pastDate = new Date(currentDate.getTime() - (hours * 60 * 60 * 1000));
+      const pastDate = new Date(currentDate.getTime() - (hours * 60 * 60 * 1000 ));
       filter.datePosted = { $lte: pastDate.toISOString().split('T')[0] };
     } else {
       return res.status(400).json({ message: 'Invalid datePosted option provided' });
@@ -140,7 +160,7 @@ app.get('/jobs', async (req, res) => {
   // console.log(filter)
   
   try{
-    const jobs = await AllJobs.find(filter)
+    const jobs = await AllJobs.find(filter).sort(sortCriteria)
     res.send(jobs)
   }catch(err){
     console.log('Error fetching jobs:', err);

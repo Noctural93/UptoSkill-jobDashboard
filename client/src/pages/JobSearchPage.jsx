@@ -5,6 +5,7 @@ import searchPng from '../assets/jobLandingPageImg/search.png'
 import locationPng from '../assets/jobLandingPageImg/location.png'
 import AllJobsPage from '../components/AllJobsPage'
 import FilterPage from '../components/FilterPage'
+import NoJobsFoundPage from '../components/NoJobsFoundPage'
 
 const placeholderTextArray = [
   "'skill'",
@@ -15,10 +16,11 @@ const placeholderTextArray = [
 const JobSearchPage = () => {
 
   const userLoggedIn = false
+  
+  const allJobs = useSelector(state => state.filterFetch)
 
   const searchResults = 500
 
-  const allJobs = useSelector(state => state.filterFetch)
   // console.log(allJobs)
 
   const [searchContentValue, setSearchContentValue] = useState('')
@@ -114,14 +116,18 @@ const JobSearchPage = () => {
             </p> : ''}
       </div>
       <div className='jobSearch-filter-jobs-profileUpdate-section'>
-        <h1>{`${searchResults} search results`}</h1>
+        <div className='jobSearch-no-of-jobs-heading'>
+          <h1>{`${searchResults} search results`}</h1>
+        </div>
         <div>
           <div className='jobSearch-filter-container'>
             <FilterPage/>
           </div>
           <div className='jobSearch-jobs-container'>
             {
-                allJobs.jobs.length && (
+                allJobs.jobs.length === 0 ? (
+                  <NoJobsFoundPage/>
+                ) : (
                   allJobs.jobs.map(item => (
                     <AllJobsPage key={item._id} jobsdata={item}/>
                   ))

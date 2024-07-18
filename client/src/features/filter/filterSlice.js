@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const initialState = {
     sortBy: 'Relevant',
     experience: 21,
-    salary: 150000,
+    salary: 0,
     datePosted: 'All',
     highestEducation: '',
     workMode: [],
@@ -25,13 +25,15 @@ const filterSlice = createSlice({
         },
         removeFilter: (state, action) => {
             state[action.payload] = initialState[action.payload]
-        }
+        },
+        resetFilter: () => initialState
     },
 })
 
 export const { 
     updateFilter,
-    removeFilter
+    removeFilter,
+    resetFilter
 } = filterSlice.actions
 
 export default filterSlice.reducer

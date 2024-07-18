@@ -2,7 +2,7 @@ import filterIcon from '../assets/jobSearchPageImg/filter-icon.png'
 import dropDown from '../assets/dropdown.png'
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateFilter, removeFilter, initialState } from '../features/filter/filterSlice'
+import { updateFilter, removeFilter, initialState, resetFilter } from '../features/filter/filterSlice'
 import { fetchedJobs } from '../features/filter/filterFetchSlice'
 
 const FilterPage = () => {
@@ -19,7 +19,7 @@ const FilterPage = () => {
     const sortByValues = [
         {id: "relevant", label: "Relevant"},
         {id: "salary-high-to-low", label: "Salary - High to low"},
-        {id: "distance-near-to-far", label: "Distance - Near to far"},
+        {id: "experience-high-to-low", label: "Experience - High to low"},
         {id: "DatePosted-new-to-old", label: "Date posted - New to Old"}
     ]
 
@@ -27,7 +27,7 @@ const FilterPage = () => {
         {id: "all", label: "All", value: "All"},
         {id: "last-24-hours", label: "Last 24 hours", value: '24'},
         {id: "last-3-days", label: "Last 3 days", value: '72'},
-        {id: "last-7-days", label: "Last 7 days", value: '168'}
+        {id: "last-7-days", label: "Last 7 days", value: '128'}
     ]
 
     const highestEduValues = [
@@ -65,8 +65,8 @@ const FilterPage = () => {
     })
 
     const [experienceValueText, setExperienceValueText] = useState('')
-    const [salaryValue, setSalaryValue] = useState(15)
-    const [salaryValueText, setSalaryValueText] = useState('₹ 1.5 Lakh')
+    const [salaryValue, setSalaryValue] = useState(0)
+    const [salaryValueText, setSalaryValueText] = useState('₹ 0')
 
     const [workModeCheckBox, setWorkModeChechBox] = useState([
         {id: "work-from-home", label: "Work from home", checked: false},
@@ -81,6 +81,8 @@ const FilterPage = () => {
         {id: "day-shift", label: "Day shift", checked: false},
         {id: "night-shift", label: "Night shift", checked: false}
     ])
+
+    const [clearFilter, setClearFilter] = useState(false)
 
   // search results
 
@@ -140,6 +142,18 @@ const FilterPage = () => {
     dispatch(fetchedJobs(filters))
   }, [dispatch, filters])
 
+  useEffect(() => {
+    const hasDifferences = Object.keys(filters).some(
+        item => String(filters[item]) !== String(initialState[item])
+    );
+
+    if(hasDifferences){
+        setClearFilter(true)
+    } else {
+        setClearFilter(false)
+    }
+  }, [filters])
+
 //   range El
   useEffect(() => {
     const min = exprangeref.current.min;
@@ -171,29 +185,48 @@ const FilterPage = () => {
   return (
     <form>
         <div className='filter-icon-container'>
-            <img src={filterIcon} alt='filter-icon'/>
-            <p>Filters</p>
+            <div>
+                <img src={filterIcon} alt='filter-icon'/>
+                <p>Filters</p>
+            </div>
+            {
+                clearFilter && (
+                    <p onClick={() => dispatch(resetFilter())}>Clear all</p>
+                )
+            }
         </div>
-        <div>
+        <div className='diff-filter-items'>
             {
                 Object.keys(filters).map(item => {
                     if(String(filters[item]) !== String(initialState[item])){
-                        if(filters.experience === '0'){
-                            return (
-                                <span key={item}>Fresher</span>
-                            )
-                        } 
-                        else if(item === 'experience'){
-                            return (
-                                <span key={item}>{`${filters[item]} years`}</span>
-                            )
+                        // setClearFilter(prev => !prev.clearFilter)
+                        if(item === 'experience'){
+                            if(filters.experience === '0'){
+                                return (
+                                    <span key={item} onClick={()=>dispatch(removeFilter(item))}>Fresher <span>x</span></span>
+                                )
+                            }else{
+                                return (
+                                    <span key={item} onClick={()=>dispatch(removeFilter(item))}>{`${filters[item]} years`} <span>x</span></span>
+                                )
+                            }
                         }
                         else if(item === 'salary'){
                             return (
-                                <span key={item}>{`₹ ${filters[item]}`}</span>
+                                <span key={item} onClick={()=>dispatch(removeFilter(item))}>{`₹ ${filters[item]}`} <span>x</span></span>
                             )
                         }
-                        return (<span key={item}>{filters[item]}</span>)
+                        else if(item === 'datePosted'){
+                            return(
+                                <span 
+                                    key={item} 
+                                    onClick={()=>dispatch(removeFilter(item))} 
+                                >
+                                    {`Last ${filters[item]} hours`} <span>x</span>
+                                </span>
+                            )
+                        }
+                        return (<span key={item} onClick={()=>dispatch(removeFilter(item))}>{filters[item]} <span>x</span></span>)
                     }
                 })
             }

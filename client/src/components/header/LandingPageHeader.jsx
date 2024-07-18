@@ -14,7 +14,14 @@ const LandingPageHeader = () => {
     <nav className="nav-bar">
         <div className="nav-bar-container">
             <div className="nav-bar-container-options">
-                <img src="https://uptoskills.com/wp-content/uploads/2023/04/hd-logo-iguru.png" alt="logo"/>
+                <Link to='/'>
+                    <img src="https://uptoskills.com/wp-content/uploads/2023/04/hd-logo-iguru.png" alt="logo"/>
+                </Link>
+                {
+                    window.location.pathname !== '/' && (
+                        <Link to='/'>Home</Link>
+                    )
+                }
                 <div className="nav-links-container">
                     <ul className="nav-links-items-list">
                         <li className="nav-links-item">
