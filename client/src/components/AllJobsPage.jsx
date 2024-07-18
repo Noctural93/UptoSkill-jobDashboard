@@ -16,11 +16,11 @@ const AllJobsPage = ({jobsdata}) => {
         </div>
         <span>{sign}</span>
       </div>
-      <div className='job-location-container'>
+      <div className='job-location-salary-container'>
         <img src={locationLogo} alt='location-icon'/>
         <p>{jobsdata.location}</p>
       </div>
-      <div className='job-salary-container'>
+      <div className='job-location-salary-container'>
         <img src={salaryLogo} alt='salary-icon'/>
         <p>{`₹ ${jobsdata.salary} monthly`}</p>
       </div>
@@ -53,13 +53,13 @@ const AllJobsPage = ({jobsdata}) => {
           (jobsdata.experience === '21') && (
             <span className='job-details-box'>Any Experience</span>
           )
-          (jobsdata.experience === '21') && (jobsdata.experience !== '0') ? 
+          (jobsdata.experience !== '21') && (jobsdata.experience === '0') ? 
             (
-              <span className='job-details-box'>{`Min. ${jobsdata.experience} year`}</span>
+              <span className='job-details-box'>Fresher only</span>
             )
             : 
             (
-              <span className='job-details-box'>Fresher only</span>
+              <span className='job-details-box'>{`Min. ${jobsdata.experience} year`}</span>
             )
         }
         {
@@ -71,55 +71,3 @@ const AllJobsPage = ({jobsdata}) => {
 }
 
 export default AllJobsPage
-
-
-// return (
-//   <div className="Box">
-//     <div>
-//       <div className="box1">
-//         <div className="web">
-//         <img className="webimg" src= {item1[0]} alt="image1" />
-//           <pre><h4>{jobsdata.title}</h4>
-//           {/* <p id="pid">{item1[2]}</p> */}
-//             </pre>
-//           <button className='btn'>{sign}</button>
-//         </div>
-//         <div className="flex">
-//             <i className="fa-solid fa-location-dot"></i>
-//             <p>{jobsdata.location}</p>
-//         </div>
-//         <div className="flex2">
-//             <i className="fa-regular fa-money-bill-1"></i>
-//             <p>{jobsdata.salary}</p>
-//         </div>
-//         <div className="main2">
-//             <div className="div1">
-//             <img src="https://cdn.apna.co/mumbai_apnatime_prod/job_ui_tags/Work%20from%20office_xxhdpi.webp" alt="image2"/>
-//             {jobsdata.workMode.map(item => (
-//               <p key={item}>{item}</p>
-//             ))}
-//             </div>
-//             <div className="div1">
-//                 <img src="https://cdn.apna.co/mumbai_apnatime_prod/job_ui_tags/Full%20time_xxhdpi.webp" alt="image3" />
-//                 {jobsdata.workType.map(item => (
-//                   <p key={item}>{item}</p>
-//                 ))}
-//             </div>
-//             <div className="div1">
-//                 <img src="https://cdn.apna.co/mumbai_apnatime_prod/job_ui_tags/Experience_xxhdpi.webp" alt="image4" />
-//                 <p>{jobsdata.experience}</p>
-//             </div>
-//             <div className="div1">
-//                 <img src="https://cdn.apna.co/mumbai_apnatime_prod/job_ui_tags/Advanced%20English_xxhdpi.webp" alt="image5"/>
-//                 <p>{jobsdata.englishLevel}</p>
-//             </div>
-//         </div>
-//         <div className="walk">
-//                 <img src={walk} alt="image6" />
-//                 <p>
-//                     Walk-in interview</p>
-//         </div>     
-//       </div>
-//     </div>
-//   </div>
-// )

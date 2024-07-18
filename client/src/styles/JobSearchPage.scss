@@ -224,6 +224,9 @@
 .jobSearch-jobs-container {
     width: 45%;
     min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .no-jobs-found-container {
@@ -263,134 +266,64 @@
     }
 }
 
+.job-card-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.job-title-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 26px;
+    > div {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        > img {
+            height: 45px;
+        }
+        > h1 {
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+    > span {
+        color: rgb(0,66,44);
+        font-size: 19px;
+    }
+}
+
+.job-location-salary-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    > img {
+        height: 27px;
+    }
+}
+
+.job-work-type-shift-experience-container {
+    display: flex;
+    gap: 5px;
+    overflow: hidden;
+    > span {
+        background-color: #e5e5e5;
+        border-radius: 6px;
+        display: flex;
+        white-space: nowrap;
+        align-items: center;
+        padding: 6px 5px;
+        > img {
+            height: 25px;
+        }
+    }
+}
+
 .jobSearch-userLogin-card {
     width: 25%;
     min-width: 200px;
-}
-
-// update this css
-
-.Box{
-    // background-color: antiquewhite;
-    width: 100%;
-    min-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-.box1{
-    position: relative;
-    height: fit-content;
-    width: 100%;
-    background-color:white;
-    border-radius: 10px;
-    padding-right: 5px;
-}
-.box1 img{
-    height: 30px;
-    padding-left: 10px;
-    padding-top: 10px
-}
-.btn{
-    border:none;
-    color:Green;
-    background-color: white;
-    font-size: 1rem;
-    margin-left: auto;
-    position:absolute;
-    right: 5%;
-}
-.web{
-    height: 70px;
-    width: 100%;
-    display:flex;
-    align-items: center;
-}
-.web img{
-    margin-right: 10px;
-}
-pre{
-    margin-top: 14px;
-}
-#pid{
-    padding-left: 0;
-}
-// p{
-//     color: #8c8594;
-//     padding-left: 10px;
-//     font-size: 15px;
-// }
-.flex{
-    display: flex;
-    margin-top: 5px;
-}
-
-i{
-    padding-left: 20px;
-    color: #8c8594;
-    font-size: 16px;
-}
-.flex2{
-    display: flex;
-    /* border: 2px solid black; */
-}
-.flex2 i{
-    padding-top: 10px;
-}
-.flex2  p{
-    padding-top: 10px;
-    padding-left: 10px;
-    font-size: 15px;
-}
-.main2{
-    background-color:white;
-    /* border: 2px solid black; */
-    height: 70px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.div1{
-    background-color: #f4f2f6 ;
-    height: 30px;
-    width: 23%;
-    padding-left: 0;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    margin-left: 5px;
-    flex-grow: 1;
-    border-radius: 2px;
-}
-.div1 p{
-    font-size: 11px;
-    padding-left: 2px;
-}
-.div1 img{
-    position:relative;
-    top:-5px;
-    height: 20px;
-    width:20px;
-}
-.walk{
-    /* background-color: white; */
-    height: 35px;
-    width: 100%;
-    /* border: 2px solid black; */
-    display: flex;
-    align-items: center;
- 
-}
-.walk img{
-    position: relative;
-    bottom: 7.4px;
-    height: 25px;
-    left: 5px;
-}
-.walk p{
-   font-size: 15px;
-    color:#190A28;
-    padding-left: 20px;
 }
