@@ -94,6 +94,7 @@
         color: rgb(31 130 104);
         font-size: 13px;
         font-weight: 600;
+        cursor: pointer;
     }
 }
 
@@ -109,6 +110,7 @@
         padding: 0 12px;
         font-size: 14px;
         color: rgb(40,83,153);
+        cursor: pointer;
         > span {
             color: rgb(32,85,164);
             font-size: 17px;
@@ -258,6 +260,7 @@
         font-size: 18px;
         padding: 8px 18px;
         border-radius: 20px;
+        cursor: pointer;
         > span {
             margin-left: 5px;
             font-size: 21px;
