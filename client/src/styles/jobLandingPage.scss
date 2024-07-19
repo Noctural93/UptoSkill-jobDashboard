@@ -787,7 +787,7 @@
 
 /* Media query for small and extra-small devices */
 
-@media  screen and (max-width: 855px) {
+@media screen and (max-width: 855px) {
 
     .search-input-container{
         width: 100%;
@@ -798,6 +798,12 @@
     }
     .location-img{
         display: none;
+    }
+    .search-job-container {
+        width: 90%;
+    } 
+    .search-job-heading-details {
+        font-size: 38px !important;
     }
     .search-input-container .hr-tag-jobLandingPage{
         display: none;
@@ -881,6 +887,27 @@
         border-style: none;
     }
 
+    .job-opening-heading {
+        text-align: center;
+    }
+    .job-opening-company-card {
+        padding: 2rem;
+        width: 340px;
+        > img {
+            height: 50px;
+            width: 60px;
+        }
+        &:hover .job-opening-company-button {
+            background-color: rgb(31,130,104);
+            color: #ffffff;
+        }
+    }
+    .job-opening-company-name {
+        margin-top: 0.5rem;
+    }
+    .job-opening-company-desc {
+        margin-bottom: 3rem;
+    }
     .rating-section{
         width: 100vw;
         height: 100vh;
