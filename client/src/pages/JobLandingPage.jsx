@@ -19,6 +19,7 @@ import tickPng from '../assets/jobLandingPageImg/tick.png'
 import CandidateInfiniteSlider from '../components/infinitescroll/CandidateInfiniteSlider'
 import TrendingInfiniteSlider_1 from '../components/infinitescroll/TrendingInfiniteSlider_1'
 import TrendingInfiniteSlider_2 from '../components/infinitescroll/TrendingInfiniteSlider_2'
+import dropDown from '../assets/dropdown.png'
 
 const placeholderTextArray = [
   "'skill'",
@@ -78,8 +79,7 @@ const JobLandingPage = () => {
       setSearchPlaceholder(constantText+placeholderTextArray[index]);
       index = (index + 1) % placeholderTextArray.length;
     }, 2000)
-  } 
-  ,[])
+  }, [])
 
   const mouseEnter_1 = (index) => {
     setHoverdIndex_1(index)
@@ -127,6 +127,26 @@ const JobLandingPage = () => {
     }
   }
 
+  const handleKeyDown = (e) => {
+    if(e.key === 'Enter'){
+      if(searchInputValue === '') {
+        setSearchInputErrMsg(true)
+        setLocationInputErrMsg(false)
+      }
+      else if(locationInput === '') {
+        setLocationInputErrMsg(true)
+        setSearchInputErrMsg(false)
+      }
+      else{
+        navigate('/jobs')
+        setSearchInputErrMsg(false)
+        setLocationInputErrMsg(false)
+        dispatch(setSearchContent(searchInputValue))
+        dispatch(setLocationContent(locationInput))
+      }
+    }
+  }
+
   return (
     <>
       <div className="home-section">
@@ -138,16 +158,17 @@ const JobLandingPage = () => {
           <h1>Your job search ends here</h1>
           <p>Discover 50 lakh+ career opportunities</p>
           <div className={`search-input-container ${searchInputErrMsg ? 'error-search-input-el' : ''} ${locationInputErrMsg ? 'error-search-input-el' : ''}`}>
-            <img src={searchPng}/>
+            <img src={searchPng} alt='search-icon'/>
             <input 
               type="search" 
               className={`search-input-el`}
               placeholder={searchPlaceholder}
               value={searchInputValue}
               onChange={(e) => setSearchInputValue(e.target.value)}
+              onKeyDown={handleKeyDown}
             />
             <hr className='hr-tag-jobLandingPage'/>
-            <img src={locationPng} className="location-img"/> 
+            <img src={locationPng} className="location-img" alt='location-icon'/> 
             <input 
               type="text" 
               className="options-input-el" 
@@ -203,9 +224,9 @@ const JobLandingPage = () => {
 
         <div className="trending_job_container">
             <h1 className="trending_job_mainhead">
-              Popular Job Searches on UptoSkills
+              Popular Searches on UptoSkills
             </h1>
-            <div className="trending_job1 t_j_1 shadow mt-3 mb-3 d-flex flex-column">
+            <div className="trending_job1 t_j_1">
                 <div>
                     <h1 className="trending_job_head1">
                         TRENDING AT #1
@@ -217,7 +238,7 @@ const JobLandingPage = () => {
                         Jobs For Freshers
                     </p>
                     <button className="trending_job_btn1">
-                        View all
+                        {`View all >`}
                     </button>
                 </div>
                 <div>  
@@ -236,7 +257,7 @@ const JobLandingPage = () => {
                         Jobs For Freshers
                     </p>
                     <button className="trending_job_btn1">
-                        View all
+                      {`View all >`}
                     </button>
                 </div>
                 <div>  
@@ -255,7 +276,7 @@ const JobLandingPage = () => {
                         Jobs For Freshers
                     </p>
                     <button className="trending_job_btn1">
-                        View all
+                      {`View all >`}
                     </button>
                 </div>
                 <div>  
@@ -274,7 +295,7 @@ const JobLandingPage = () => {
                         Jobs For Freshers
                     </p>
                     <button className="trending_job_btn1">
-                        View all
+                      {`View all >`}
                     </button>
                 </div>
                 <div>  
@@ -293,7 +314,7 @@ const JobLandingPage = () => {
                         Jobs For Freshers
                     </p>
                     <button className="trending_job_btn1">
-                        View all
+                      {`View all >`}
                     </button>
                 </div>
                 <div>  

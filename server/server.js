@@ -15,9 +15,7 @@ app.get('/', (req, res) => {
     res.send('hello world');
 });
 
-const uri = process.env.URI;
-
-mongoose.connect(uri)
+mongoose.connect(process.env.URI)
 .then(() => console.log('MongoDb connected'))
 .catch((err) => console.log('MongoDb Error:', err));
 

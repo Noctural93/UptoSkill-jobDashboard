@@ -155,7 +155,7 @@
     font-size: 15px;
     width: 100%;
     overflow: hidden;
-    padding-top: 37vh;
+    padding-top: 35vh;
     padding-bottom: 10vh;
     --gap: 90px;
     display: flex;
@@ -226,15 +226,23 @@
     font-size: 18px;
     color:black;
 }
+
 .trending_job_container{
+    width: 100vw;
     background-color:#ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10vh;
 }
+
 .trending_job_mainhead{
-    font-family: "roboto";
+    font-family: sans-serif;
     font-size:55px;
     font-weight:bolder;
     color:rgb(0, 0, 0);
-
+    width: 30%;
 }
 
 .trending_job1 {
@@ -249,7 +257,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Ensure content doesn't overflow the container */
+    overflow: hidden;
+    width: 30%;
 }
 
 .t_j_1:hover {
@@ -337,19 +346,19 @@
     font-weight: bold;
     position: absolute;
     white-space: nowrap; 
-    right: -190px;
     color: white;
+    left: 40%;
     background-color: transparent;
     text-shadow: -1px -1px 0 #b7b7b7, 1px -1px 0 #b7b7b7, -1px 1px 0 #b7b7b7, 1px 1px 0 #b7b7b7;
     transition: all 0.4s ease-in;
 }
 .trending_job1:hover .trending-job-para2{
-    right: -100px;
+    left: 25%;
 }
 
 .trending_job_img1 {
-    height: 215px;
-    width: 215px;
+    height: 185px;
+    width: 185px;
     position: absolute;
     bottom: 0px;
     right: 2px;
@@ -365,6 +374,8 @@
     font-weight: bold;
     color: black;
     transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+    display: flex;
+    align-items: center;
 }
 
 /* job opening section */
@@ -570,7 +581,8 @@
 
 .rating-section {
     min-width: 100vw;
-    height: 50vh;
+    height: 55vh;
+    min-height: 550px;
     display: flex;
     align-items: center;
     margin: 4rem 0;
@@ -579,9 +591,10 @@
 
 .join-community-card {
     height: 100%;
-    max-width: 35%;
+    width: 510px;
     background-color: rgb(31, 130, 104);
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     justify-content: center;
     padding: 0 5rem;
@@ -601,6 +614,7 @@
             color: #ffffff;
             margin-bottom: 0;
             margin-right: 0.5rem;
+            white-space: nowrap;
         }
         > img {
             height: 25px;
@@ -619,7 +633,7 @@
 .user-rating-container {
     background-color: rgb(234,248,244);
     height: 100%;
-    width: 100%;
+    min-width: 55%;
     display: flex;
     align-items: center;
     overflow: auto !important;
@@ -633,7 +647,7 @@
 }
 
 .user-rating-card {
-    height: 70%;
+    min-height: 55%;
     width: 500px;
     flex-shrink: 0;
     padding: 2rem;
@@ -770,22 +784,160 @@
     height: 400px;
 }
 
+
 /* Media query for small and extra-small devices */
-@media (max-width: 767.98px) {
+
+@media  screen and (max-width: 855px) {
+
+    .search-input-container{
+        width: 100%;
+        display: flex;
+    }
+    .options-input-el {
+        display: none;
+    }
+    .location-img{
+        display: none;
+    }
+    .search-input-container .hr-tag-jobLandingPage{
+        display: none;
+    }
+    .search-jobs-btn {
+        display: none;
+    }
+    .search-input-el {
+        width: 100%;
+    }
 
     /* trending job section */
 
-    .trending_job1 {
-        border-color: #e15959;
-        background-image: linear-gradient(180deg, transparent 25%, #ff7676);
-        transform: scale(1.05);
+    .trending_job_img1 {
+        height: 155px;
+        width: 155px;
     }
-    .trending_job1 > button {
-        background-color: #ff3c3c;
+
+    .trending_job_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .trending_job_mainhead{
+        width: 93%;
+        margin-bottom: 10px;
+        font-size: 36px;
+    }
+
+    .trending_job1 {
+        width: 93%;
+    }
+
+    .t_j_1{
+        border-color: #e15959;
+        background: linear-gradient(180deg, hsla(0, 0%, 100%, 1) 18%, hsla(0, 61%, 83%, 1) 100%);
+    }
+    .t_j_1 .trending_job_para1{
+        color: #ca4242;
+    }
+    .t_j_1 .trending_job_btn1{
+        background-color: #ca4242;
         color: aliceblue;
         border-style: none;
     }
-    .trending_job_para1::after {
-        display: block;
+    .t_j_2{
+        border-color: #4d2cc4;
+        background: linear-gradient(180deg, hsla(0, 0%, 100%, 1) 18%, rgb(165, 148, 216) 100%);
+    }
+    .t_j_2 .trending_job_btn1{
+        background-color: #4d2cc4;
+        color: aliceblue;
+        border-style: none;
+    }
+    .t_j_2 .trending-job-para1{
+        color: #4d2cc4;
+    }
+    .t_j_3 {
+        border-color: #21962d;
+        background: linear-gradient(180deg, hsla(0, 0%, 100%, 1) 18%, rgb(148, 216, 158) 100%);
+    }
+    .t_j_3 .trending_job_btn1{
+        background-color: #21962d;
+        color: aliceblue;
+        border-style: none;
+    }
+    .t_j_3 .trending-job-para1{
+        color: #21962d;
+    }
+    .t_j_4{
+        border-color: #3754d6;
+        background: linear-gradient(180deg, hsla(0, 0%, 100%, 1) 18%, rgb(160, 182, 242) 100%);
+    }
+    .t_j_4 .trending-job-para1{
+        color: #3754d6;
+    }
+    .t_j_4 .trending_job_btn1{
+        background-color: #3754d6;
+        color: aliceblue;
+        border-style: none;
+    }
+
+    .rating-section{
+        width: 100vw;
+        height: 100vh;
+        min-height: 780px;
+        display: flex;
+        flex-direction: column;
+    }
+    .join-community-card {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+        > div {
+            margin-top: 2rem;
+        }
+    }
+    .quotes-img {
+        height: 60px;
+        width: 60px;
+        padding: 13px;
+    }
+    .user-rating-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+    
+    .employer-card {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        width: 90%;
+    }
+    .employer-card-details{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    .employer-theme{
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .post-btn{
+        margin-top: 1rem;
+    }
+    .employer-img {
+        height: 300px;
     }
 }

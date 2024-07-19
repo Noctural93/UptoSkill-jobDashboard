@@ -14,6 +14,12 @@ const jobSearchSlice = createSlice({
         },
         setLocationContent: (state, action) => {
             state.locationcontent = action.payload
+        },
+        resetSearchContent: () => {
+            initialState.searchcontent
+        },
+        resetLocationContent: () => {
+            initialState.locationcontent
         }
     }
 });

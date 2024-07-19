@@ -29,6 +29,9 @@
     justify-content: space-between;
     align-items: center;
     margin: 0.5rem 0;
+    > img {
+        display: none;
+    }
 }
 
 .nav-bar-container-options {
@@ -45,6 +48,9 @@
             height: 35px;
             padding-bottom: 2px;
         }
+    }
+    > img {
+        display: none;
     }
 }
 
@@ -262,5 +268,35 @@
         border: 2px solid rgb(31 130 104) ;
         background-color: transparent;
         color: rgb(31 130 104);
+    }
+}
+
+@media screen and (531px < width < 855px) {
+    .nav-links-container {
+        display: none;
+    }
+    .nav-bar-container-options {
+        > img {
+            display: inline-block;
+            height: 22px;
+        }
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .nav-links-container {
+        display: none;
+    }
+    .nav-bar-container-options {
+        > img {
+            display: none;
+        }
+    }
+    .login-buttons-container {
+        display: none;
+    }
+    .mobile-ham-icon {
+        display: inline-block !important;
+        height: 22px;
     }
 }

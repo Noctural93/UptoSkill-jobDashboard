@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import dropDownPng from '../../assets/dropdown.png'
 import {useDispatch} from 'react-redux'
 import { togglePopup } from '../../features/loginpopup/loginpopupSlice'
+import hamburger from '../../assets/icons-hamburger.png'
 
 const LandingPageHeader = () => {
 
@@ -14,6 +15,7 @@ const LandingPageHeader = () => {
     <nav className="nav-bar">
         <div className="nav-bar-container">
             <div className="nav-bar-container-options">
+                <img src={hamburger} alt='hamburger-icon'/>
                 <Link to='/'>
                     <img src="https://uptoskills.com/wp-content/uploads/2023/04/hd-logo-iguru.png" alt="logo"/>
                 </Link>
@@ -198,6 +200,7 @@ const LandingPageHeader = () => {
                 </Link>
                 <button className="candidate-btn" onClick={onClickingcandidateLogin}>Candidate Login</button>
             </div>
+            <img src={hamburger} alt='hamburger-icon' className='mobile-ham-icon'/>
         </div>
     </nav>
   )
