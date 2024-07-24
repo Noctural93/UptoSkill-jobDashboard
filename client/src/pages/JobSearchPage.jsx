@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux'
-
+import ReactPaginate from 'react-paginate';
 import AllJobsPage from '../components/AllJobsPage'
 import FilterPage from '../components/FilterPage'
 import NoJobsFoundPage from '../components/NoJobsFoundPage'
 import SearchAndLocationBar from '../components/SearchAndLocationBar'
+import { useState } from 'react';
 
 const JobSearchPage = () => {
 
@@ -11,7 +12,25 @@ const JobSearchPage = () => {
   
   const allJobs = useSelector(state => state.filterFetch)
 
-  const searchResults = 500
+  const itemsPerPage = 10;
+  const [itemOffset, setItemOffset] = useState(0);
+
+  const endOffset = itemOffset + itemsPerPage;
+
+  const currentItems = allJobs.jobs.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(allJobs.jobs.length / itemsPerPage);
+
+  // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % allJobs.jobs.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+  };
+
+
+  const searchResults = allJobs.jobs.length
 
   // console.log(allJobs)
 
@@ -28,16 +47,14 @@ const JobSearchPage = () => {
           </div>
           <div className='jobSearch-jobs-container'>
             {
-                allJobs.jobs.length === 0 ? (
+                currentItems.length === 0 ? (
                   <NoJobsFoundPage/>
                 ) : (
-                  allJobs.jobs.map(item => (
+                  currentItems.map(item => (
                     <AllJobsPage key={item._id} jobsdata={item}/>
                   ))
                 )
             }
-
-
           </div>
           {userLoggedIn ? (
             <div className='jobSearch-profileEdit-card'>
@@ -50,6 +67,15 @@ const JobSearchPage = () => {
           )}
         </div>
       </div>
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel="next"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={6}
+        pageCount={pageCount}
+        previousLabel="prev"
+        renderOnZeroPageCount={null}
+      />
     </div>
   )
 }

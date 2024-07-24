@@ -405,11 +405,11 @@
     gap: 40px;
     padding: 0 5rem;
     overflow-x: auto !important;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     &::-webkit-scrollbar {
         display: none;
     }
-    -ms-overflow-style: none;
-    scrollbar-width: none;
 }
 
 .job-opening-company-card {
@@ -637,13 +637,13 @@
     display: flex;
     align-items: center;
     overflow: auto !important;
-    &::-webkit-scrollbar {
-        display: none;
-    }
     -ms-overflow-style: none;
     scrollbar-width: none;
     gap: 3rem;
     padding: 0 2rem;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .user-rating-card {

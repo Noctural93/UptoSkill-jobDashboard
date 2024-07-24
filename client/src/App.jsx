@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Loader from './components/Loader.jsx';
 import LandingPageHeader from './components/header/LandingPageHeader.jsx';
 import EmployerPageHeader from './components/header/EmployerPageHeader.jsx';
+import JobItem from './pages/JobItem.jsx';
 
 const JobLandingPage = lazy(() => import('./pages/JobLandingPage.jsx'));
 const EmployerLoginPage = lazy(() => import('./pages/EmployerLoginPage.jsx'));
@@ -31,6 +32,12 @@ const App = () => {
             <>
               <LandingPageHeader/>
               <JobSearchPage/>
+            </>
+          }/>
+          <Route path='/jobs/:id' element={
+            <>
+              <LandingPageHeader/>
+              <JobItem/>
             </>
           }/>
           <Route path='/resume-builder' element={

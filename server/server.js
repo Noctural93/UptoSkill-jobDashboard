@@ -117,7 +117,7 @@ app.get('/jobs', async(req, res) => {
     const index = educationLevels.indexOf(highestEducation)
 
     if(index !== -1){
-      filter.highestEducation = { $in: educationLevels.slice(index) }
+      filter.highestEducation = { $in: educationLevels[index] }
     }
   }
 
